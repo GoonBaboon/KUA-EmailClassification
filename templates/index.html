@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KUA - Email-Classifier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/kunal.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center mb-4 Kunal kunal-arcade">Email Spam Classifier</h2>
+      <div class="container1 custom-shadow">
+        <div class="form-container custom-shadow2">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="email_text">Enter your email_text:</label>
+              <textarea class="form-control" id="email_text" name="email_text" rows="4" placeholder="Type your email_text here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Classify</button>
+          </form>
+
+          {% if prediction is not None %}
+            <div class="prediction-result mt-4">
+              <h3 class="text-center" style="color: black;" >Prediction: {{ prediction }}</h3>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const numAsteroids = 10 // Number of asteroids
+        const body = document.body
+      
+        for (let i = 0; i < numAsteroids; i++) {
+          let asteroid = document.createElement('div')
+          asteroid.classList.add('asteroid')
+      
+          // Random positioning
+          asteroid.style.left = Math.random() * window.innerWidth + 'px'
+          asteroid.style.top = Math.random() * window.innerHeight + 'px'
+          asteroid.style.animationDuration = 5 + Math.random() * 5 + 's' // Varying speeds
+      
+          body.appendChild(asteroid)
+        }
+      })
+    </script>
+  </body>
+</html>
