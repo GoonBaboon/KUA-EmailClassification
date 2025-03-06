@@ -6,7 +6,8 @@
   font-family: 'Press Start 2P', cursive;
 }
 body {
-
+    min-width: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden; /* Prevent scrolling */
@@ -16,16 +17,20 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Space Stars */
-body::before {
+/* body::before {
         background: url("https://cdn.pixabay.com/photo/2022/02/18/18/31/moon-7021271_1280.jpg")  no-repeat center center fixed;
         background-size: cover;
         color: white;
         font-family: 'Poppins', sans-serif;
         height: 100vh;
-}
+} */
 
 /* Floating Asteroids */
 /* Floating Asteroids - Smaller Size */
@@ -33,7 +38,7 @@ body::before {
     position: absolute;
     width: 15px;  /* Reduced size */
     height: 15px; /* Reduced size */
-    background: gray;
+    background: rgb(255, 0, 0);
     border-radius: 50%;
     box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.4);
     opacity: 0.8;
@@ -54,8 +59,18 @@ body::before {
 
 .container1{
   margin: auto;
-  max-width: 610px;
   border-radius: 5px;
+  padding: 2vw;
+  /* background-position: center; */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  /* background-attachment: fixed; */
+  /* backdrop-filter: blur(10px); */
+  background-color: #f9f9f9;
+  text-align: center;
+  /* font-size: clamp(1rem, 2vw, 1.5rem); */
+  /* max-width: 90%; */
+  width: 480px;
 }
 body {
     padding: 20px;
@@ -63,21 +78,39 @@ body {
 
 
 .form-container {
-    max-width: 600px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    margin: auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    background-color: #f9f9f9;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  padding: 2vw; /* Padding scales with the viewport width */
+  background: rgba(255, 255, 255, 0.1); /* Slight transparency on background */
+  color: white;
+  margin: auto; /* Centers the container */
+  background-position: center; /* Centers the background */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-attachment: fixed; /* Keeps background fixed during scrolling */
+  backdrop-filter: blur(10px); /* Applies blur effect to the background */
+  background-color: #f9f9f9; /* Light gray background color */
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2); /* Subtle box shadow */
+  font-size: clamp(1rem, 2vw, 1.5rem); /* Makes text size responsive */
+  max-width: 90%;  /* Ensures it doesn’t exceed screen width */
+    width: 400px;  /* Adjust this as needed */
+    /* padding: 20px; */
+}
+
+.form-container h1 {
+  font-size: clamp(2rem, 5vw, 1.5rem); /* Headline adjusts with viewport */
+}
+
+.form-container p {
+  font-size: clamp(1.25rem, 3vw, 1rem); /* Paragraph text adjusts with viewport */
 }
 
 
-
+@media  screen and (max-width:1330px) {
+  body{
+    width: 100%;
+  }
+  
+}
 .prediction-result {
     margin-top: 20px;
     padding: 10px;
